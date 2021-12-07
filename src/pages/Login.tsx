@@ -1,19 +1,17 @@
 import { ChangeEvent, memo, useState, VFC } from "react";
-import { InputButton } from "../atoms/button/InputButton";
+import { InputField } from "../atoms/button/InputField";
 
 export const Login: VFC = memo(() => {
-  const [UserInpt, setUserInput] = useState("");
-  const { login, loading } = InputButton;
+  const [userInput, setUserInput] = useState("");
 
   const onChangeUserId = (e: ChangeEvent<HTMLInputElement>) =>
     setUserInput(e.target.value);
   return (
     <>
       <p>LOGIN</p>
-      <InputButton
+      <InputField
         onChange={onChangeUserId}
-        loading={loading}
-        placeHolder={"パスワードを入力してアクセス"}
+        placeholder={"パスワードを入力してアクセス"}
       />
     </>
   );
