@@ -3,7 +3,7 @@ import "./App.css";
 import { CancelButton } from "./atoms/button/CancelButton";
 import { DecisiveButton } from "./atoms/button/DecisiveButton";
 import { FloatButton } from "./atoms/button/FloatButton";
-import { LoginButton } from "./atoms/button/LoginButton";
+import { Login } from "./pages/Login";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <br />
       <br />
       <br />
-      <LoginButton />
+      <Login />
       <br />
       <DecisiveButton />
       <br />
