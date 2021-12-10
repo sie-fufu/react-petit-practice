@@ -1,9 +1,10 @@
 import React from "react";
 import "./App.css";
-import { CancelButton } from "./atoms/button/CancelButton";
-import { DecisiveButton } from "./atoms/button/DecisiveButton";
-import { FloatButton } from "./atoms/button/FloatButton";
-import { Login } from "./pages/Login";
+import "styles/util.scss";
+import { CancelButton } from "components/atoms/button/CancelButton";
+import { DecisiveButton } from "components/atoms/button/DecisiveButton";
+import { FloatButton } from "components/atoms/button/FloatButton";
+import { Login } from "pages/Login";
 
 function App() {
   return (
@@ -12,11 +13,11 @@ function App() {
       <br />
       <br />
       <br />
-      <Login />
       <br />
       <DecisiveButton />
       <br />
       <CancelButton />
+      <Login />
     </div>
   );
 }
