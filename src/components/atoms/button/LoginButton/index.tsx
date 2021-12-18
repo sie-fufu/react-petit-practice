@@ -7,13 +7,25 @@ type Props = {
   loading?: boolean;
   onClick: () => void;
   className: string;
+  disabled?: boolean;
 };
 
 export const LoginButton: VFC<Props> = memo((props) => {
-  const { children, loading = false, onClick, className } = props;
+  const {
+    children,
+    loading = false,
+    onClick,
+    // className,
+    disabled = false,
+  } = props;
 
   return (
-    <Button className={classes.logButton} isLoading={loading} onClick={onClick}>
+    <Button
+      className={classes.logButton}
+      isLoading={loading}
+      onClick={onClick}
+      disabled={disabled || loading}
+    >
       {children}
     </Button>
   );

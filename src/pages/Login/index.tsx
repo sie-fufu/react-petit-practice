@@ -1,37 +1,37 @@
-import { Input } from "@chakra-ui/input";
 import { Box, Divider, Flex, Heading, Stack } from "@chakra-ui/layout";
 import { memo, useState, VFC } from "react";
 import { LoginButton } from "components/atoms/button/LoginButton";
 import classes from "pages/Login/index.module.scss";
 import { InputField } from "components/atoms/InputField";
+import { useAuth } from "hooks/useAuth";
 
 export const Login: VFC = memo((props) => {
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+  const { login, loading } = useAuth();
 
   const onChangePassword = (v: string) => setPassword(v);
 
-  const onClickLogin = () => Login(123);
+  const onClickLogin = () => login(password);
   return (
-    <Flex align="center" justify="center" height="100vh">
-      <Box w="sm" p={4} shadow="md">
+    <Flex
+      className={classes.container}
+      align="center"
+      justify="center"
+      height="100vh"
+    >
+      <Box bg="white" w="sm" borderRadius={10} p={20} shadow="md">
         <Heading as="h1" size="lg" textAlign="center">
-          Login
+          LOGIN
         </Heading>
         <Divider />
         <Stack>
-          {/* <Input
-            className={classes.input}
-            placeholder="パスワード"
-            value="123"
-            onChange={onChangePassward}
-          /> */}
           <InputField
             label="パスワード"
             value={password}
             onChange={onChangePassword}
           />
           <LoginButton
+            disabled={password === ""}
             className={classes.logButton}
             loading={loading}
             onClick={onClickLogin}
