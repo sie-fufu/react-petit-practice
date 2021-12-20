@@ -16,7 +16,7 @@ export const Decide = () => {
       <Box>
         <br />
         <Link to="/changePass" className={classes.link}>
-          パス画面へ
+          パスワード変更画面へ
         </Link>
       </Box>
       <h1 className={classes.decideTitle}>決定画面</h1>
