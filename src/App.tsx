@@ -31,10 +31,10 @@ function App() {
         <Route path="/changePass">
           <ChangePass />
         </Route>
+        <Route path="*">
+          <Page404 />
+        </Route>
       </Switch>
-      <Route path="*">
-        <Page404 />
-      </Route>
     </BrowserRouter>
   );
 }
