@@ -41,7 +41,7 @@ export const useAuth = () => {
           if (data.adminPassword === password) {
             // 管理者ページ遷移
             showMessage({ title: "ログインしました。", status: "success" });
-            history.push("/Management");
+            history.push("/manage");
           } else if (data.authPassword === password) {
             // メインページに移動
             showMessage({ title: "ログインしました。", status: "success" });
