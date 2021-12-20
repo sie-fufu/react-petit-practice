@@ -9,7 +9,7 @@ export const Decide = () => {
     <>
       <Box>
         <br />
-        <Link to="/management" className={classes.link}>
+        <Link to="/manage" className={classes.link}>
           管理者画面へ
         </Link>
       </Box>
