@@ -1,0 +1,27 @@
+button {
+  width: 160px;
+  height: 50px;
+  font-size: x-large;
+
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 30px;
+
+  border-radius: 5px;
+  // box-shadow: 2px 2px 0 0 black;
+
+  &.decisiveBtn {
+    background-color: rgb(120, 109, 109);
+    color: #fff;
+    &:hover {
+      background-color: #8cbbe2;
+      cursor: pointer;
+    }
+
+    &:active {
+      height: 52px;
+      margin-top: 2px;
+      margin-bottom: 26px;
+    }
+  }
+}
