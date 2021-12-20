@@ -7,8 +7,6 @@ import { useMessage } from "./useMessage";
 export const useAuth = () => {
   const history = useHistory();
   const { showMessage } = useMessage();
-  const [adminPassword, setAdminPassword] = useState<string>("");
-  const [authPassword, setAuthPassword] = useState<string>("");
   const [loading, setLoading] = useState(false);
 
   // const handleConfirmPassword = useCallback(
@@ -40,15 +38,11 @@ export const useAuth = () => {
           // APIから値を取得
           const data = res.data[0];
 
-          // 取得した値を状態で管理
-          setAdminPassword(data.adminPassword);
-          setAuthPassword(data.authPassword);
-
-          if (adminPassword === password) {
+          if (data.adminPassword === password) {
             // 管理者ページ遷移
             showMessage({ title: "ログインしました。", status: "success" });
             history.push("/Management");
-          } else if (authPassword === password) {
+          } else if (data.authPassword === password) {
             // メインページに移動
             showMessage({ title: "ログインしました。", status: "success" });
             history.push("/Main");
@@ -61,11 +55,11 @@ export const useAuth = () => {
           }
         })
         .catch(() => {
-          showMessage({ title: "半角英数字で入力して下さい", status: "error" });
-          setLoading(false);
-        });
+          showMessage({ title: "エラーが発生しました。", status: "error" });
+        })
+        .finally(() => setLoading(false));
     },
-    [adminPassword, authPassword, history, showMessage]
+    [history, showMessage]
   );
   return { login, loading };
 };
